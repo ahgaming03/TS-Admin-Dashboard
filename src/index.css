@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #F5F6F9;
+}
+
+.side-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+}
+
+.side-content.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.2s cubic-bezier(1, 0, 1, 0);
+}
+
+/* 18008119 */
