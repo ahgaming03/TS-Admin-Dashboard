@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const TopNav = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -14,7 +16,7 @@ export const TopNav = () => {
   }, [count]);
 
   return (
-    <div className="bg-white px-5 py-4">
+    <div className="sticky top-0 z-50 bg-red-100 px-5 py-2">
       <div className="flex items-center gap-4">
         {/* Sidebar toogle */}
         <div className="cursor-pointer p-3 hover:rounded-full hover:bg-gray-100 md:hidden">
@@ -27,6 +29,10 @@ export const TopNav = () => {
             <path d="M16 132h416c8.8 0 16-7.2 16-16V76c0-8.8-7.2-16-16-16H16C7.2 60 0 67.2 0 76v40c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-40c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v40c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-40c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v40c0 8.8 7.2 16 16 16z" />
           </svg>
         </div>
+        <Link to="/" className="flex items-center justify-center gap-4">
+          <FontAwesomeIcon icon={["fas", "camera"]} size="xl" />
+          <div className="text-2xl font-bold uppercase">Brand</div>
+        </Link>
         {/* Search bar */}
         <div className="mr-auto flex w-full max-w-[400px] justify-between max-sm:hidden">
           <input

@@ -6,13 +6,13 @@ body {
     background-color: #F5F6F9;
 }
 
-.side-content {
+.collapse-content {
     max-height: 0;
     overflow: hidden;
     transition: all 0.2s cubic-bezier(0, 1, 0, 1);
 }
 
-.side-content.show {
+.collapse-content.show {
     height: auto;
     max-height: 9999px;
     transition: all 0.2s cubic-bezier(1, 0, 1, 0);

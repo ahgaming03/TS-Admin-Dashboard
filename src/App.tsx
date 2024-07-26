@@ -1,66 +1,74 @@
 import { useState } from "react";
-import { TagList } from "./components/Tag_List/TagList";
-import { ProjectList } from "./components/Project_List/ProjectList";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Footer } from "./components/_footer";
 import { TopNav } from "./components/_topnav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SidebarList } from "./components/Sidebar/SidebarList";
+import { Dashboard } from "./routes/Dashboard/Dashboard";
+import { Blank } from "./routes/Other_Pages/Blank";
+import { NotFound } from "./routes/Other_Pages/NotFound";
+import { Cards } from "./routes/Components/Cards";
+import { Buttons } from "./routes/Components/Buttons";
+
+const Home = () => <h2>Home Page</h2>;
+const About = () => <h2>About Page</h2>;
+const Contact = () => <h2>Contact Page</h2>;
 
 function App() {
-  const [selected, setSelected] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const toggle = (id: any) => {
-    if (selected === id) {
-      return setSelected(null);
-    }
-    setSelected(id);
-  };
-
   return (
-    <div className="flex">
-      <div
-        className={`flex w-full flex-col bg-blue-500 font-normal capitalize text-white ${sidebarOpen ? "max-w-56" : "max-w-[6.5rem]"}`}
-      >
-        <div className="flex items-center justify-center gap-4 py-4">
-          <FontAwesomeIcon icon={["fas", "camera"]} size="xl" />
-          <div
-            className={`text-2xl font-bold uppercase ${sidebarOpen ? "" : "hidden"}`}
-          >
-            Brand
-          </div>
-        </div>
-        <hr className="opacity-50" />
-        <ul className="">
-          <SidebarList sidebarOpen={sidebarOpen} />
-          <hr className="opacity-50" />
+    <Router>
+      <TopNav />
+      <div className="flex">
+        {/* Sidebar */}
+        <div className="flex w-full max-w-56 flex-col bg-blue-500 capitalize text-white">
+          <ul>
+            <SidebarList />
+            <hr className="my-4 opacity-50" />
 
-          <div
-            className="pt-2 text-center"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            <FontAwesomeIcon
-              icon={["fas", "circle-chevron-left"]}
-              size="2x"
-              className="cursor-pointer opacity-50 hover:opacity-100"
-            />
-          </div>
-        </ul>
-      </div>
-      <div className="flex min-h-screen w-full flex-col justify-between">
-        {/* Content */}
-        <div className="">
-          <TopNav />
-          <div className="p-6">
-            <div className="mb-6 text-3xl text-gray-800">Dashboard</div>
-            <TagList />
-            <ProjectList />
-          </div>
+            <li className="pb-4 text-center">
+              <FontAwesomeIcon
+                icon={["fas", "circle-chevron-left"]}
+                size="2x"
+                className="cursor-pointer opacity-50 hover:opacity-100"
+              />
+            </li>
+            <li className="flex justify-center gap-2">
+              <Link to={"https://github.com/ahgaming03"} target="_blank">
+                <FontAwesomeIcon icon={["fab", "github"]} size="xl" />
+              </Link>
+              <Link to={"https://github.com/ahgaming03"} target="_blank">
+                <FontAwesomeIcon icon={["fab", "facebook"]} size="xl" />
+              </Link>
+              <Link to={"https://github.com/ahgaming03"} target="_blank">
+                <FontAwesomeIcon icon={["fab", "discord"]} size="xl" />
+              </Link>
+              <Link to={"https://github.com/ahgaming03"} target="_blank">
+                <FontAwesomeIcon icon={["fab", "youtube"]} size="xl" />
+              </Link>
+            </li>
+          </ul>
         </div>
-        {/* Footer */}
-        <Footer />
+        <div className="flex min-h-screen w-full flex-col justify-between">
+          {/* Content */}
+          <div className="">
+            <div className="p-6">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact/*" element={<Contact />} />
+                <Route path="/cards" element={<Cards />} />
+                <Route path="/blank" element={<Blank />} />
+                <Route path="/button" element={<Buttons />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </div>
+          {/* Footer */}
+          <Footer />
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

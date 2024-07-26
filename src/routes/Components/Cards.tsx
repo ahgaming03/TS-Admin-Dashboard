@@ -1,6 +1,7 @@
-import { Tag } from "./Tag";
+import { Card, CardCollapse } from "../../components/Card/Card";
+import { Widget, widgetProp } from "../../components/Card/Widget";
 
-const data = [
+const widgets: widgetProp[] = [
   {
     title: "EARNINGS (MONTHLY)",
     content: "$40,000",
@@ -93,12 +94,13 @@ const data = [
   },
 ];
 
-export const TagList = () => {
+export const Cards = () => {
   return (
     <>
-      <div className="mb-6 grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
-        {data.map((mon, index) => (
-          <Tag
+      <div className="mb-6 text-3xl text-gray-700">Cards</div>
+      <div className="mx-[-0.75rem] grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1">
+        {widgets.map((mon, index) => (
+          <Widget
             key={index}
             title={mon.title}
             content={mon.content}
@@ -107,6 +109,18 @@ export const TagList = () => {
             textColor={mon.textColor}
           />
         ))}
+      </div>
+      <div className="mx-[-0.75rem] grid grid-cols-1 lg:grid-cols-2">
+        <Card title={"Default card"}>This is default card.</Card>
+        <CardCollapse title={"Collapse card"}>
+          This is a collapse card. <strong>Click on the card header </strong>
+          to see the card body collapse and expand!
+        </CardCollapse>
+        <Card title={"Default card"}>This is default card.</Card>
+        <CardCollapse title={"Collapse card"}>
+          This is a collapse card. <strong>Click on the card header </strong>
+          to see the card body collapse and expand!
+        </CardCollapse>
       </div>
     </>
   );

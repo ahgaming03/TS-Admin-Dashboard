@@ -1,63 +1,66 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
 import { itemProp, SidebarItem } from "./SidebarItem";
-
-interface sidebarListProp {
-  sidebarOpen: boolean;
-}
 
 const datas: itemProp[] = [
   {
-    id: "dashboard",
     title: "Dashboard",
     icon: <FontAwesomeIcon icon={["fas", "gauge-high"]} />,
+    url: "/",
   },
   {
-    id: "comp",
     icon: <FontAwesomeIcon icon={["fas", "gear"]} />,
     title: "Components",
     content: [
       {
-        title: "button1",
+        title: "cards",
+        url: "/cards",
       },
       {
-        title: "button2",
+        title: "button",
+        url: "/button",
       },
     ],
   },
   {
-    id: "ult",
     icon: <FontAwesomeIcon icon={["fas", "wrench"]} />,
     title: "Utilities",
     content: [
       {
         title: "ulti1",
+        url: "/temp1",
       },
       {
         title: "ulti2",
+        url: "/temp2",
+      },
+    ],
+  },
+  {
+    icon: <FontAwesomeIcon icon={["fas", "folder"]} />,
+    title: "Pages",
+    content: [
+      {
+        title: "404",
+        url: "/404p",
+      },
+      {
+        title: "Blank",
+        url: "/blank",
       },
     ],
   },
 ];
 
-export const SidebarList: React.FC<sidebarListProp> = ({ sidebarOpen }) => {
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const toggle = (id: string) => {
-    if (selected === id) {
-      return setSelected(null);
-    }
-    setSelected(id);
-  };
+export const SidebarList = () => {
   return (
     <ul>
       {datas.map((item, index) => (
         <SidebarItem
           key={index}
-          id={item.id + index}
           icon={item.icon}
           title={item.title}
           content={item.content}
+          url={item.url}
         />
       ))}
     </ul>

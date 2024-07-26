@@ -4,16 +4,16 @@ interface tagProp {
   title: string;
   icon: ReactNode;
   content: string | ReactNode;
-  borderColor: string;
-  textColor: string;
+  borderColor?: string;
+  textColor?: string;
 }
 
 export const Tag: React.FC<tagProp> = ({
   title,
   content,
   icon,
-  borderColor,
-  textColor,
+  borderColor = "border-l-blue-500",
+  textColor = "text-blue-500",
 }) => {
   return (
     <div className={`w-full rounded border-l-4 bg-white ${borderColor}`}>
