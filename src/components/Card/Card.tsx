@@ -9,7 +9,7 @@ export interface cardProp {
 export const Card: React.FC<cardProp> = ({ title, children }) => {
   return (
     <>
-      <div className="mx-3 mb-6">
+      <div className="mb-6">
         <div className="rounded border bg-white">
           <div className="rounded-t border-b bg-gray-50 px-5 py-2 font-semibold capitalize text-blue-500">
             {title}
@@ -25,7 +25,7 @@ export const CardCollapse: React.FC<cardProp> = ({ title, children }) => {
   const [collapse, setCollapse] = useState(true);
   return (
     <>
-      <div className="mx-3 mb-6">
+      <div className="mb-6">
         <div className="rounded border bg-white">
           <a
             href="#!"

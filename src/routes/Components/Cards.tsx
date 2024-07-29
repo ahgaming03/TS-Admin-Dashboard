@@ -98,7 +98,7 @@ export const Cards = () => {
   return (
     <>
       <div className="mb-6 text-3xl text-gray-700">Cards</div>
-      <div className="mx-[-0.75rem] grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1">
+      <div className="mx-[-0.75rem] grid grid-cols-4 max-[1200px]:grid-cols-2 max-md:grid-cols-1">
         {widgets.map((mon, index) => (
           <Widget
             key={index}
@@ -111,16 +111,20 @@ export const Cards = () => {
         ))}
       </div>
       <div className="mx-[-0.75rem] grid grid-cols-1 lg:grid-cols-2">
-        <Card title={"Default card"}>This is default card.</Card>
-        <CardCollapse title={"Collapse card"}>
-          This is a collapse card. <strong>Click on the card header </strong>
-          to see the card body collapse and expand!
-        </CardCollapse>
-        <Card title={"Default card"}>This is default card.</Card>
-        <CardCollapse title={"Collapse card"}>
-          This is a collapse card. <strong>Click on the card header </strong>
-          to see the card body collapse and expand!
-        </CardCollapse>
+        <div className="mx-3">
+          <Card title={"Default card"}>This is default card.</Card>
+          <CardCollapse title={"Collapse card"}>
+            This is a collapse card. <strong>Click on the card header </strong>
+            to see the card body collapse and expand!
+          </CardCollapse>
+        </div>
+        <div className="mx-3">
+          <Card title={"Default card"}>This is default card.</Card>
+          <CardCollapse title={"Collapse card"}>
+            This is a collapse card. <strong>Click on the card header </strong>
+            to see the card body collapse and expand!
+          </CardCollapse>
+        </div>
       </div>
     </>
   );

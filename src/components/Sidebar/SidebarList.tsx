@@ -49,6 +49,11 @@ const datas: itemProp[] = [
       },
     ],
   },
+  {
+    icon: <FontAwesomeIcon icon={["fas", "table"]} />,
+    title: "Tables",
+    url: "/table",
+  },
 ];
 
 export const SidebarList = () => {

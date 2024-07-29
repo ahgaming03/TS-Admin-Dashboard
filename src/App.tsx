@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Footer } from "./components/_footer";
 import { TopNav } from "./components/_topnav";
@@ -9,6 +8,7 @@ import { Blank } from "./routes/Other_Pages/Blank";
 import { NotFound } from "./routes/Other_Pages/NotFound";
 import { Cards } from "./routes/Components/Cards";
 import { Buttons } from "./routes/Components/Buttons";
+import { Tables } from "./routes/Other_Pages/Tables";
 
 const Home = () => <h2>Home Page</h2>;
 const About = () => <h2>About Page</h2>;
@@ -60,6 +60,7 @@ function App() {
                 <Route path="/cards" element={<Cards />} />
                 <Route path="/blank" element={<Blank />} />
                 <Route path="/button" element={<Buttons />} />
+                <Route path="/table" element={<Tables />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
